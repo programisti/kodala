@@ -1,0 +1,11 @@
+{application,comeonin,
+             [{registered,[]},
+              {description,"Password hashing (bcrypt, pbkdf2_sha512) library for Elixir.\n"},
+              {applications,[kernel,stdlib,elixir,crypto,logger]},
+              {vsn,"1.0.5"},
+              {modules,['Elixir.Comeonin','Elixir.Comeonin.Bcrypt',
+                        'Elixir.Comeonin.BcryptBase64',
+                        'Elixir.Comeonin.Config','Elixir.Comeonin.Password',
+                        'Elixir.Comeonin.Pbkdf2',
+                        'Elixir.Comeonin.Pbkdf2Base64',
+                        'Elixir.Comeonin.Tools']}]}.

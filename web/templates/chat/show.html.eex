@@ -1,0 +1,38 @@
+<p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+<div class="row">
+  <div id="messages"></div>
+  <input id="message-input" class="form-control" />
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+  var chat_id = <%= @conn.params["id"] %>;
+  var agent_id = 5;
+
+  var messages  = $("#messages");
+  var input     = $("#message-input");
+
+  var socket = new Phoenix.Socket("/ws");
+  socket.connect();
+
+  var chan = socket.chan("chat:"+chat_id);
+  chan.params["type"] = "agent";
+  chan.params["name"] = agent_id;
+  chan.join(); 
+
+  chan.on("new_msg", function(msg) {
+    var user = msg["user"];
+    var body = msg["body"];
+    messages.append("<p><a href='#'>["+user+"]</a>&nbsp; "+body+"</p>");
+    scrollTo(0, document.body.scrollHeight);
+  });
+
+  input.off("keypress").on("keypress",function(e){
+    if (e.keyCode == 13) {
+      chan.push("new_msg", {user: agent_id, body: input.val()});
+      input.val("");
+    }
+  });
+
+});
+</script>

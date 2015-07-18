@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>chat</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/phoenix.js"></script>
+    <script src="/js/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+<div id="intro" class="container">
+  whats your name:
+  <input type="text" id="clientname" class="form-control" value="john"/>
+  <br />
+  <button id="startchat" class="btn btn-success">start chat</button>
+  <br />
+  <br />
+</div>
+
+<div id="waiting" style="display:none;" class="container">
+  waiting for agent 
+</div>
+
+<div id="messanger" style="display:none;" class="row">
+  <div id="messages" class="container">
+  </div>
+  <div class="row">
+    <input id="message-input" class="form-control" />
+  </div>
+</div>
+
+<script src="/js/user.js"></script>
+
+	</body>
+</html>
